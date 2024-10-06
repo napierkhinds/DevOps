@@ -6,4 +6,4 @@
 
 # DevOps
 
-## Develop ![Develop build status ](https://img.shields.io/github/actions/workflow/status/napierkhinds/DevOps/main.yml?branch=develop)
+![Develop build status ](https://img.shields.io/github/actions/workflow/status/napierkhinds/DevOps/main.yml?branch=Develop)
