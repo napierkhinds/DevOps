@@ -1,0 +1,32 @@
+@startuml
+
+actor A as "Statistician"
+
+rectangle "Population Information System" {
+    usecase UC1 as "Get Population Information"
+    usecase UCa as "Sort by Country"
+    usecase UCe as "Handle Data Unavailability"
+    usecase UCd as "Handle Sorting Error"
+    usecase UCdwn as "Download Up To Date Data"
+
+    A --> UC1
+    UC1 ..> UCa : include
+    UC1 <.. UCe : extend
+    UC1 <.. UCd : extend
+    UC1 <.. UCdwn : extend
+}
+
+rectangle Database {
+    UC1 - Database : "Retrieve Data"
+}
+
+note right of UC1
+Preconditions:
+- Authenticated user
+- Up-to-date data
+
+Success: Complete list sorted by population
+Failed: Errors, unavailability, network issues
+end note
+
+@enduml
