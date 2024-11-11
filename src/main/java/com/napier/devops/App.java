@@ -1,5 +1,7 @@
 package com.napier.devops;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -13,7 +15,7 @@ public class App {
      * Connection to MySQL database.
      */
     private Connection con = null;
-    public static void main(String[] args) throws IOException {
+    public static void main(String @NotNull [] args) throws IOException {
         // Create new Application
         App a = new App();
 

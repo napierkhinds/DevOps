@@ -16,13 +16,13 @@ public class AppTest {
 
     @Test
     void printCitiesTestNull() {
-        App.printCityReport(null);
+        app.printCityReport(null);
     }
 
     @Test
     void printCitiesTestEmpty() {
         ArrayList<City> cities = new ArrayList<City>();
-        App.printCityReport(cities);
+        app.printCityReport(cities);
     }
 
     @Test
@@ -34,6 +34,6 @@ public class AppTest {
         cities.add(city);
         city = new City(460, "Edinburgh", "GBR", "Scotland", 450180);
         cities.add(city);
-        App.printCityReport(cities);
+        app.printCityReport(cities);
     }
 }
