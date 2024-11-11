@@ -1,9 +1,9 @@
-name: A workflow for my App
+name: A workflow for my Hello World App
 on: push
 
 jobs:
   build:
-    name: Test Build Action
+    name: Hello world action
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
@@ -13,20 +13,22 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-      - name: Unit Tests
-        run: mvn -Dtest=com.napier.devops.AppTest test
-      - name: Package and Run docker compose
-        run: |
-          mvn package -DskipTests
-          docker compose up --abort-on-container-exit
+      - name: Package with Maven
+        run: mvn package
+      - name: Run docker compose
+        run: docker compose up --abort-on-container-exit
       - name: view logs
-        run: docker logs devops3-app-1
+        run: docker logs devops-app-1
+      # copy from docker container back to our execution environment
       - name: Copy Output
-        run: docker container cp devops3-app-1:./tmp/output ./
+        run: docker container cp devops-app-1:./tmp/output ./
+      # check files on actions environment run: |
+      # allows multiple commands
       - name: List dirs
         run: |
           pwd
           ls
+      #copy output folder to new branch called output
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
