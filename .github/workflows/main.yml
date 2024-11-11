@@ -20,7 +20,7 @@ jobs:
           mvn package -DskipTests
           docker compose up --abort-on-container-exit
       - name: view logs
-        run: docker logs devops3-app-1
+        run: docker logs devops-app-1
       - name: Copy Output
         run: docker container cp devops-app-1:./tmp/output ./
       - name: List dirs
